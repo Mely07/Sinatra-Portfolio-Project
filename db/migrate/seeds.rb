@@ -1,0 +1,1 @@
+#Grocery.create(name: milk) rake:db seed 
