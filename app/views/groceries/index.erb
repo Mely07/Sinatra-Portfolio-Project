@@ -1,0 +1,7 @@
+<h2> Groceries</h2>
+
+<ul> 
+<%@groceries.each do |grocery|%>
+    <li><a href="/groceries/<%=grocery.id%>"><%=grocery.name%></a></li>
+<%end%>
+</ul>

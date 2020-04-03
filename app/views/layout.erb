@@ -25,9 +25,11 @@
         <button class="btn btn-sm btn-outline-secondary" type="button">Smaller button</button> %>
         <%if Helpers.is_logged_in?(session) %>
           <button type="button" class="btn btn-outline-info float-right"><a href="/logout">Log Out</a></button>
+          <button type="button" class="btn btn-outline-info float-right"><a href="<%="/groceries"%>">All Groceries</a></button>
           <button type="button" class="btn btn-outline-info float-right"><a href="/users/<%=Helpers.current_user(session).id%>">My Fridge</a></button>
           <button type="button" class="btn btn-outline-info float-right"><a href="<%="/groceries/new"%>">Add Grocery Item</a></button>
           <button type="button" class="btn btn-outline-info float-right"><a href="<%="/users"%>">App Users</a></button>
+
         <%else%>
           <button type="button" class="btn btn-outline-info float-right"><a href="/login">Login</a></button>
           <button type="button" class="btn btn-outline-info float-right"><a href="/signup">Sign Up</a></button>

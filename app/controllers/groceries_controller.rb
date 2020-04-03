@@ -1,4 +1,9 @@
 class GroceriesController < ApplicationController
+    get '/groceries' do
+        @groceries = Grocery.all
+        erb :'groceries/index'
+    end
+    
     get '/groceries/new' do
         if !Helpers.is_logged_in?(session)
             redirect '/'
