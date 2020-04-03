@@ -30,9 +30,10 @@ class UsersController < ApplicationController
     get '/users/:id' do
         if Helpers.is_logged_in?(session) && User.find_by(id: params[:id])
             @user = User.find_by(id: params[:id])
+            @groceries = @user.groceries
         else
             #add flash message 
-            redirect to '/'
+            redirect to '/login'
         end
         erb :'users/show'
     end
@@ -64,7 +65,7 @@ class UsersController < ApplicationController
             session.clear 
             redirect to '/'
         else
-            redirect to "login"
+            redirect to "/login"
         end
     end
 

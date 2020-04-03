@@ -1,4 +1,29 @@
 class GroceriesController < ApplicationController
+    get '/groceries/new' do
+        if !Helpers.is_logged_in?(session)
+            redirect '/'
+        end
+        erb :'groceries/new'
+    end
 
+    post '/groceries' do
+        grocery = Grocery.create(params)
+        user = Helpers.current_user(session)
+        grocery.user = user
+        grocery.save
+        redirect to "/users/#{user.id}"
+    end
+
+    get '/groceries/:id' do
+        if !Helpers.is_logged_in?(session)
+            redirect '/login'
+        end
+        @grocery = Grocery.find_by(id: params[:id])
+        if !@grocery 
+            user = Helpers.current_user(session)
+            redirect to "/users/#{user.id}"
+        end
+        erb :'groceries/show'
+    end
 
 end
