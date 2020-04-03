@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
     
     get '/users' do
-        @users = User.all
+        if Helpers.is_logged_in?(session)
+            @users = User.all
+        else
+            redirect '/'
+        end
         erb :'users/index'
     end
     
@@ -24,9 +28,10 @@ class UsersController < ApplicationController
     end
 
     get '/users/:id' do
-        if User.find_by(id: params[:id])
+        if Helpers.is_logged_in?(session) && User.find_by(id: params[:id])
             @user = User.find_by(id: params[:id])
         else
+            #add flash message 
             redirect to '/'
         end
         erb :'users/show'

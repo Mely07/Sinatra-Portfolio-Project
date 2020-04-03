@@ -23,10 +23,13 @@
       <form class="form-inline">
         <button class="btn btn-sm btn-outline-secondary" type="button">Smaller button</button>
         <button class="btn btn-sm btn-outline-secondary" type="button">Smaller button</button> %>
-        <button type="button" class="btn btn-outline-info float-right"><a href="/logout">Log Out</a></button>
-         <button type="button" class="btn btn-outline-info float-right"><a href="#">My Fridge</a></button>
-         <button type="button" class="btn btn-outline-info float-right"><a href="/login">Login</a></button>
-         <button type="button" class="btn btn-outline-info float-right"><a href="/signup">Sign Up</a></button>
+        <%if Helpers.is_logged_in?(session) %>
+          <button type="button" class="btn btn-outline-info float-right"><a href="/logout">Log Out</a></button>
+          <button type="button" class="btn btn-outline-info float-right"><a href="<%=Helpers.current_user(session).id if Helpers.current_user(session)%>">My Fridge</a></button>
+        <%else%>
+          <button type="button" class="btn btn-outline-info float-right"><a href="/login">Login</a></button>
+          <button type="button" class="btn btn-outline-info float-right"><a href="/signup">Sign Up</a></button>
+        <%end%>
       <%# </form>
     </nav> %>
 
