@@ -1,6 +1,9 @@
-
     <h3><%=@grocery.name%></h3>
     <p><%=@grocery.brand%></p>
     <p><%=@grocery.expiration_date.strftime('%m-%d-%Y')%></p>
+
+<% if Helpers.current_user(session) == @grocery.user%>
+    <a href="/groceries/<%=@grocery.id%>/edit">Edit Item</a>
+<%end%>
 
 

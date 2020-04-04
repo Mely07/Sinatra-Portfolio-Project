@@ -31,4 +31,23 @@ class GroceriesController < ApplicationController
         erb :'groceries/show'
     end
 
+    get '/groceries/:id/edit' do
+        @grocery = Grocery.find_by(id: params[:id])
+        if !Helpers.is_logged_in?(session) || !@grocery || @grocery.user != Helpers.current_user(session)
+            redirect '/login'
+        end
+        erb :'groceries/edit'
+    end
+
+
+    patch '/groceries/:id' do
+        grocery = Grocery.find_by(id: params[:id])
+        if grocery && grocery.user == Helpers.current_user(session)
+            grocery.update(params[:grocery])
+            redirect to "/groceries/#{grocery.id}"
+        else 
+            redirect to '/groceries'
+        end
+    end
+
 end
