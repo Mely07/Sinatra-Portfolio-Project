@@ -4,6 +4,11 @@
 
 <% if Helpers.current_user(session) == @grocery.user%>
     <a href="/groceries/<%=@grocery.id%>/edit">Edit Item</a>
+
+    <form action="/groceries/<%=@grocery.id%>" method="post">
+
+        <input id="hidden" type="hidden" name="_method" value="delete">
+        <input type="submit" value="Delete Item">
+        
+    </form>
 <%end%>
-
-

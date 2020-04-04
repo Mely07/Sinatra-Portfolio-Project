@@ -50,4 +50,13 @@ class GroceriesController < ApplicationController
         end
     end
 
+    delete '/groceries/:id' do 
+        grocery = Grocery.find_by(id: params[:id])
+        if grocery && grocery.user == Helpers.current_user(session)
+           grocery.destroy 
+           redirect to "/groceries/#{grocery.id}"
+        end
+            redirect to '/'
+    end
+
 end
