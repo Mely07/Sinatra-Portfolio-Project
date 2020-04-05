@@ -1,8 +1,10 @@
-    <div>
-    <h3><%=@grocery.name%></h3>
-    <p><%=@grocery.brand%></p>
+<h3><%=@grocery.name%></h3>
+<p><%=@grocery.brand%></p>
+
+<% if Helpers.current_user(session) == @grocery.user%>
     <p><%=@grocery.expiration_date.strftime('%m-%d-%Y')%></p>
-    </div>
+<%end%>
+<p><%=@grocery.comment%></p>
 
 <% if Helpers.current_user(session) == @grocery.user%>
 <button type="button" class="btn btn-outline-info"> <a href="/groceries/<%=@grocery.id%>/edit">Edit Item</a></button>
