@@ -8,34 +8,58 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 
-    <title>SinatraGroceries</title>
+    <title>What's in my Fridge?</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="/stylesheets/main.css" />
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Inconsolata">
+    <style>
+      body {
+        font-family: 'Inconsolata', serif;
+      }
+      a {
+        color:#E9967A	 !important;
+        font-weight:bold;
+      }
+
+      button {
+        color:#E9967A	 !important;
+        font-weight:bold;
+      }
+      li {
+        list-style-type: disc;
+        margin-left: 40px; 
+        padding-left: 0;
+      }
+
+
+    </style>
   </head>
 
 
   <body>
+
     <div class="wrapper">
 
-    <%# <nav class="navbar navbar-light bg-light">
-      <form class="form-inline">
-        <button class="btn btn-sm btn-outline-secondary" type="button">Smaller button</button>
-        <button class="btn btn-sm btn-outline-secondary" type="button">Smaller button</button> %>
+    <nav class="navbar navbar-light bg-light rounded" style="padding-left: 0px";>
+    <form class="form-inline">
         <%if Helpers.is_logged_in?(session) %>
-          <button type="button" class="btn btn-outline-info float-right"><a href="/logout">Log Out</a></button>
-          <button type="button" class="btn btn-outline-info float-right"><a href="<%="/groceries"%>">All Groceries</a></button>
-          <button type="button" class="btn btn-outline-info float-right"><a href="/users/<%=Helpers.current_user(session).id%>">My Fridge</a></button>
-          <button type="button" class="btn btn-outline-info float-right"><a href="<%="/groceries/new"%>">Add Grocery Item</a></button>
-          <button type="button" class="btn btn-outline-info float-right"><a href="<%="/users"%>">App Users</a></button>
+          <button type="button" class="btn btn-outline-info mx-1"><a href="/logout">Log Out</a></button>
+          <button type="button" class="btn btn-outline-info mx-1"><a href="<%="/groceries"%>">All Groceries</a></button>
+          <button type="button" class="btn btn-outline-info mx-1"><a href="/users/<%=Helpers.current_user(session).id%>">My Fridge</a></button>
+        <button type="button" class="btn btn-outline-info mx-1"><a href="<%="/groceries/new"%>">Add Grocery Item</a></button>
+          <button type="button" class="btn btn-outline-info mx-1"><a href="<%="/users"%>">App Users</a></button>
 
         <%else%>
-          <button type="button" class="btn btn-outline-info float-right"><a href="/login">Login</a></button>
-          <button type="button" class="btn btn-outline-info float-right"><a href="/signup">Sign Up</a></button>
+          <button type="button" class="btn btn-outline-info float-left mx-1"><a href="/login">Login</a></button>
+          <button type="button" class="btn btn-outline-info float-left mx-1"><a href="/signup">Sign Up</a></button>
         <%end%>
-      <%# </form>
-    </nav> %>
+        </form>
+    </nav>
+    <br/>
+    <br/>
 
 
         <% @flash.to_h.each do |key, value| %>
@@ -46,10 +70,12 @@
 
         <%= yield %>
 
-      <footer class="branding">
+
+     <!-- <footer class="branding">
         <%# <small>&copy; 2020 <strong>SinatraGroceries</strong></small> %>
-      </footer>
+      </footer> -->
     </div>
+
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <!--[if lt IE 7]>

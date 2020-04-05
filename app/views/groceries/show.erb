@@ -1,14 +1,19 @@
+    <div>
     <h3><%=@grocery.name%></h3>
     <p><%=@grocery.brand%></p>
     <p><%=@grocery.expiration_date.strftime('%m-%d-%Y')%></p>
+    </div>
 
 <% if Helpers.current_user(session) == @grocery.user%>
-    <a href="/groceries/<%=@grocery.id%>/edit">Edit Item</a>
+<button type="button" class="btn btn-outline-info"> <a href="/groceries/<%=@grocery.id%>/edit">Edit Item</a></button>
 
-    <form action="/groceries/<%=@grocery.id%>" method="post">
 
-        <input id="hidden" type="hidden" name="_method" value="delete">
-        <input type="submit" value="Delete Item">
-        
-    </form>
+<form action="/groceries/<%=@grocery.id%>" method="post">
+
+
+    <input id="hidden" type="hidden" name="_method" value="delete">
+    <br/>
+    <button type="submit" class="btn btn-outline-info">Delete</button>
+</form>
 <%end%>
+

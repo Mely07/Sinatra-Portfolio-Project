@@ -1,16 +1,19 @@
-<h1> Edit Grocery Item </h1>
+<h2> Edit Grocery Item </h2>
 
 <form action="/groceries/<%=@grocery.id%>" method="post">
     <input id="hidden" type="hidden" name="_method" value="patch">
     
     <label>Name: </label>
-    <input type="text" name="grocery[name]" id="name" value="<%=@grocery.name%>"><br/>
+    <input type="text" name="grocery[name]" id="name" value="<%=@grocery.name%>" class="rounded"><br/>
     
     <label>Brand: </label>
-    <input type="text" name="grocery[brand]" id="brand" value="<%=@grocery.brand%>"><br/>
+    <input type="text" name="grocery[brand]" id="brand" value="<%=@grocery.brand%>" class="rounded"><br/>
     
     <label>Expiration Date: </label>
-    <input type="date" name="grocery[expiration_date]" id="expiration_date" value="<%=@grocery.expiration_date%>"><br/>
-
-    <input type="submit" value="Submit"/>
+    <input type="date" name="grocery[expiration_date]" id="expiration_date" value="<%=@grocery.expiration_date%>" class="rounded">
+    
+    <br/>
+    <br/>
+    
+    <button type="submit" class="btn btn-outline-info">Submit</button>
 </form>
