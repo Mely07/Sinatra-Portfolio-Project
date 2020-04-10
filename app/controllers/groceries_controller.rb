@@ -20,6 +20,7 @@ class GroceriesController < ApplicationController
     end
 
     get '/groceries/:id' do
+        binding.pry
         if !Helpers.is_logged_in?(session)
             redirect '/login'
         end
