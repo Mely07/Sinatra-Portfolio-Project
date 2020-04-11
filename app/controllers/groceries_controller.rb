@@ -16,11 +16,11 @@ class GroceriesController < ApplicationController
         user = Helpers.current_user(session)
         grocery.user = user
         grocery.save
-        redirect to "/users/#{user.id}"
+        flash[:primary] = "Item Added!"
+        redirect to "/users/#{user.id}" 
     end
 
     get '/groceries/:id' do
-        binding.pry
         if !Helpers.is_logged_in?(session)
             redirect '/login'
         end

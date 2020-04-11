@@ -32,7 +32,6 @@ class UsersController < ApplicationController
             @user = User.find_by(id: params[:id])
             @groceries = @user.groceries
         else
-            #add flash message 
             redirect to '/login'
         end
         erb :'users/show'
@@ -54,8 +53,7 @@ class UsersController < ApplicationController
             session[:user_id] = user.id
             redirect to "users/#{user.id}"
         else
-            @flash = {}
-            @flash[:danger] = "Incorrect username/password. Please try again!"
+            flash[:danger] = "Incorrect username/password. Please try again!"
             erb :'users/login'
         end
     end
