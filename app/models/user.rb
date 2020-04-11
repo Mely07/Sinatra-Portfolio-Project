@@ -1,9 +1,8 @@
 class User < ActiveRecord::Base 
     has_many :groceries
 
-    validates :username, presence: true, uniqueness: true #from AR::Base, ensures unqiue username is entered
-    validates :email, presence: true, uniqueness: true #from AR::Base, ensures unqiue username is entered
-    #pw validation
-     
+    validates :username, presence: true, uniqueness: true
+    validates :email, presence: true, uniqueness: true 
+    
     has_secure_password
 end

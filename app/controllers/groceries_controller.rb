@@ -13,12 +13,18 @@ class GroceriesController < ApplicationController
 
     post '/groceries' do
         grocery = Grocery.create(params)
-        user = Helpers.current_user(session)
-        grocery.user = user
-        grocery.save
-        flash[:primary] = "Item Added!"
-        redirect to "/users/#{user.id}" 
+        if grocery.valid?
+            user = Helpers.current_user(session)
+            grocery.user = user
+            grocery.save
+            flash[:primary] = "Item Successfully Added!"
+            redirect to "/users/#{user.id}" 
+        else 
+            flash[:danger] = "Please enter an item name."
+            redirect to '/groceries/new'
+        end 
     end
+
 
     get '/groceries/:id' do
         if !Helpers.is_logged_in?(session)
@@ -55,9 +61,10 @@ class GroceriesController < ApplicationController
         grocery = Grocery.find_by(id: params[:id])
         if grocery && grocery.user == Helpers.current_user(session)
            grocery.destroy 
+           flash[:secondary] = "Item Deleted"
            redirect to "/groceries/#{grocery.id}"
         end
-            redirect to '/'
+        redirect to '/'
     end
 
 end

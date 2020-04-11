@@ -43,7 +43,6 @@ class UsersController < ApplicationController
             user = Helpers.current_user(session)
             redirect to "/users/#{user.id}"
         end
-
         erb :'users/login'
     end
     
@@ -61,7 +60,8 @@ class UsersController < ApplicationController
     get '/logout' do
         if Helpers.is_logged_in?(session)
             session.clear 
-            redirect to '/login'
+            flash[:primary] = "Goodbye!"
+            redirect to '/login' 
         else
             redirect to "/login"
         end
