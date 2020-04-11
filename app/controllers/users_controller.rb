@@ -50,7 +50,7 @@ class UsersController < ApplicationController
         user = User.find_by(username: params[:username])
         if user && user.authenticate(params[:password])
             session[:user_id] = user.id
-            redirect to "users/#{user.id}"
+            redirect to "/users/#{user.id}"
         else
             flash[:danger] = "Incorrect username/password. Please try again!"
             erb :'users/login'
@@ -60,8 +60,8 @@ class UsersController < ApplicationController
     get '/logout' do
         if Helpers.is_logged_in?(session)
             session.clear 
-            flash[:primary] = "Goodbye!"
-            redirect to '/login' 
+            flash[:warning] = "Goodbye!"
+            erb :'users/login'
         else
             redirect to "/login"
         end

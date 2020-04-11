@@ -17,7 +17,7 @@ class GroceriesController < ApplicationController
             user = Helpers.current_user(session)
             grocery.user = user
             grocery.save
-            flash[:primary] = "Item Successfully Added!"
+            flash[:warning] = "Item Successfully Added!"
             redirect to "/users/#{user.id}" 
         else 
             flash[:danger] = "Please enter an item name."
@@ -61,8 +61,8 @@ class GroceriesController < ApplicationController
         grocery = Grocery.find_by(id: params[:id])
         if grocery && grocery.user == Helpers.current_user(session)
            grocery.destroy 
-           flash[:secondary] = "Item Deleted"
-           redirect to "/groceries/#{grocery.id}"
+           flash[:warning] = "Item Deleted"
+           redirect to "/users/#{grocery.user.id}"
         end
         redirect to '/'
     end
