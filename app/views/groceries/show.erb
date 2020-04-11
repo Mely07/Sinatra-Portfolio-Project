@@ -1,21 +1,22 @@
 <h3><%=@grocery.name%></h3>
+
 <p><%=@grocery.brand%></p>
 
-<% if Helpers.current_user(session) == @grocery.user%>
-    <p><%=@grocery.expiration_date.strftime('%m-%d-%Y')%></p>
+<%if Helpers.current_user(session) == @grocery.user%>
+    <% if @grocery.expiration_date %>
+        <p><%=@grocery.expiration_date.strftime('%m-%d-%Y')%></p>
+    <%end%>
 <%end%>
+
 <p><%=@grocery.comment%></p>
 
-<% if Helpers.current_user(session) == @grocery.user%>
-<button type="button" class="btn btn-outline-info"> <a href="/groceries/<%=@grocery.id%>/edit">Edit Item</a></button>
+<%if Helpers.current_user(session) == @grocery.user%>
+    <button type="button" class="btn btn-outline-info"><a href="/groceries/<%=@grocery.id%>/edit">Edit Item</a></button>
 
-
-<form action="/groceries/<%=@grocery.id%>" method="post">
-
-
-    <input id="hidden" type="hidden" name="_method" value="delete">
-    <br/>
-    <button type="submit" class="btn btn-outline-info">Delete</button>
-</form>
+    <form action="/groceries/<%=@grocery.id%>" method="post">
+        <input id="hidden" type="hidden" name="_method" value="delete">
+        <br/>
+        <button type="submit" class="btn btn-outline-info">Delete</button>
+    </form>
 <%end%>
 

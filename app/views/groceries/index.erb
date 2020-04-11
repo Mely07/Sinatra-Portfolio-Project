@@ -1,12 +1,8 @@
 <h2> Trending Items</h2>
 
 <ul> 
-<%@groceries.each do |grocery|%>
-    <li><a href="/groceries/<%=grocery.id%>"><%=grocery.name%></a></li>
-<%end%>
+    <%@groceries.each do |grocery|%>
+        <li><a href="/groceries/<%=grocery.id%>"><%=grocery.name%></a></li>
+    <%end%>
 </ul>
 
-<!--
-Top products?
-Popular brands? 
--->

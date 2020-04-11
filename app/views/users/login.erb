@@ -1,13 +1,14 @@
-<h2>Login to View What's In Your Fridge!</h2>
-  
+<h2>Log In to View What's In Your Fridge!</h2>
+
 <form action='/login' method='post'>
+    <label for="username">Username: </label>
+    <input type="text" name="username" class="rounded"><br/>
 
-<label for="username">Username: </label>
-<input type="text" name="username" class="rounded"><br/>
+    <label for="password">Password: </label>
+    <input type="password" name="password" class="rounded">
 
-<label for="password">Password: </label>
-<input type="password" name="password" class="rounded">
-<br/>
-<br/>
-<button type="submit" class="btn btn-outline-info mx-">Login</button>
+    <br/>
+    <br/>
+
+    <button type="submit" class="btn btn-outline-info mx-">Log In</button>
 </form>

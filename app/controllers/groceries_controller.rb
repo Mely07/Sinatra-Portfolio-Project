@@ -1,4 +1,5 @@
 class GroceriesController < ApplicationController
+    
     get '/groceries' do
         @groceries = Grocery.all
         erb :'groceries/index'
@@ -20,7 +21,7 @@ class GroceriesController < ApplicationController
             flash[:warning] = "Item Successfully Added!"
             redirect to "/users/#{user.id}" 
         else 
-            flash[:danger] = "Please enter an item name."
+            flash[:danger] = "Item name required."
             redirect to '/groceries/new'
         end 
     end
@@ -45,7 +46,6 @@ class GroceriesController < ApplicationController
         end
         erb :'groceries/edit'
     end
-
 
     patch '/groceries/:id' do
         grocery = Grocery.find_by(id: params[:id])

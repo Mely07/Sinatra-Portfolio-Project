@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     end
 
     post '/signup' do
-        user = User.create(username: params[:username], email: params[:email], password: params[:password])
+        user = User.create(params)
         if user.valid?
             session[:user_id] = user.id 
             redirect to "/users/#{user.id}"
@@ -63,7 +63,7 @@ class UsersController < ApplicationController
             flash[:warning] = "Goodbye!"
             erb :'users/login'
         else
-            redirect to "/login"
+            redirect to '/login'
         end
     end
 
