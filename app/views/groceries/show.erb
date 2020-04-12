@@ -3,7 +3,7 @@
 <p><%=@grocery.brand.titleize%></p>
 
 <%if Helpers.current_user(session) == @grocery.user%>
-    <%if @grocery.expiration_date%>
+    <%if @grocery.expiration_date %>
         <p><%=@grocery.expiration_date.strftime('%m-%d-%Y')%></p>
     <%end%>
 <%end%>
@@ -11,8 +11,8 @@
 <p><%=@grocery.comment%></p>
 
 <%if Helpers.current_user(session) == @grocery.user%>
-    <button type="button" class="btn btn-outline-info"><a href="/groceries/<%=@grocery.id%>/edit">Edit Item</a></button>
-
+    <a href="/groceries/<%=@grocery.id%>/edit" class="btn btn-outline-info" role="button">Edit Item</a>
+    
     <form action="/groceries/<%=@grocery.id%>" method="post">
         <input id="hidden" type="hidden" name="_method" value="delete">
         <br/>

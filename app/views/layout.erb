@@ -41,19 +41,18 @@
     <div class="wrapper">
 
       <nav class="navbar navbar-light bg-light rounded" style="padding-left: 0px";>
-      <form class="form-inline">
+      <div>
           <%if Helpers.is_logged_in?(session) %>
-            <button type="button" class="btn btn-outline-info mx-1"><a href="/logout">Log Out</a></button>
-            <button type="button" class="btn btn-outline-info mx-1"><a href="<%="/groceries"%>">All Groceries</a></button>
-            <button type="button" class="btn btn-outline-info mx-1"><a href="/users/<%=Helpers.current_user(session).id%>">My Fridge</a></button>
-            <button type="button" class="btn btn-outline-info mx-1"><a href="<%="/groceries/new"%>">Add Grocery Item</a></button>
-            <button type="button" class="btn btn-outline-info mx-1"><a href="<%="/users"%>">App Users</a></button>
-
+            <a href="/logout" class="btn btn-outline-info mx-1" role="button">Log Out</a>
+            <a href="/groceries" class="btn btn-outline-info mx-1" role="button">All Groceries</a>
+            <a href="/users/<%=Helpers.current_user(session).id%>" class="btn btn-outline-info mx-1" role="button">My Fridge</a>
+            <a href="<%="/groceries/new"%>" class="btn btn-outline-info mx-1" role="button">Add Grocery Item</a>
+            <a href="<%="/users"%>" class="btn btn-outline-info mx-1" role="button">App Users</a>
           <%else%>
-            <button type="button" class="btn btn-outline-info float-left mx-1"><a href="/login">Log In</a></button>
-            <button type="button" class="btn btn-outline-info float-left mx-1"><a href="/signup">Sign Up</a></button>
+            <a href="/login" class="btn btn-outline-info float-left mx-1" role="button">Log In</a>
+            <a href="/signup" class="btn btn-outline-info float-left mx-1" role="button">Sign Up</a>
           <%end%>
-        </form>
+        </div>
       </nav>
 
       <br/>

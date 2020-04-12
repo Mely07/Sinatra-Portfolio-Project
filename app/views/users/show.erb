@@ -11,6 +11,6 @@
 <br/>
 
 <%if Helpers.current_user(session) != @user%>
-    <button type="button" class="btn btn-outline-info mx-1"><a href="mailto:<%=@user.email%>">Contact User</a></button>
+    <a href="mailto:<%=@user.email%>" class="btn btn-outline-info mx-1" role="button">Contact User</a>
 <%end%>
 

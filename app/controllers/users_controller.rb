@@ -18,13 +18,18 @@ class UsersController < ApplicationController
     end
 
     post '/signup' do
-        user = User.create(params)
-        if user.valid?
-            session[:user_id] = user.id 
-            redirect to "/users/#{user.id}"
-        else 
-            flash[:danger] = "Username/Email already registered. Please log in or try again!"
+        if params[:username].empty? || params[:email].empty? || params[:password].empty?
+            flash[:danger] = "Missing required field. Please try again!"
             erb :'users/signup'
+        else
+            user = User.create(params)
+            if user.valid?
+                session[:user_id] = user.id 
+                redirect to "/users/#{user.id}"
+            else 
+                flash[:danger] = "Username/Email already registered. Please try again!"
+                erb :'users/signup'
+            end
         end
     end
 
