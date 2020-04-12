@@ -43,7 +43,6 @@ class UsersController < ApplicationController
         erb :'users/show'
     end
 
-
     get '/login' do
         if Helpers.is_logged_in?(session)
             user = Helpers.current_user(session)
