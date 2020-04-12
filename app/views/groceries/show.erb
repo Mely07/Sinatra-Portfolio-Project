@@ -1,9 +1,9 @@
-<h3><%=@grocery.name%></h3>
+<h3><%=@grocery.name.titleize%></h3>
 
-<p><%=@grocery.brand%></p>
+<p><%=@grocery.brand.titleize%></p>
 
 <%if Helpers.current_user(session) == @grocery.user%>
-    <% if @grocery.expiration_date %>
+    <%if @grocery.expiration_date%>
         <p><%=@grocery.expiration_date.strftime('%m-%d-%Y')%></p>
     <%end%>
 <%end%>

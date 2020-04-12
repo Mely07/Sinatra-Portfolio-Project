@@ -23,7 +23,8 @@ class UsersController < ApplicationController
             session[:user_id] = user.id 
             redirect to "/users/#{user.id}"
         else 
-            redirect to '/signup'
+            flash[:danger] = "Username/Email already registered. Please log in or try again!"
+            erb :'users/signup'
         end
     end
 

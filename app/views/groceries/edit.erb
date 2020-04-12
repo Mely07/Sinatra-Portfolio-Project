@@ -4,10 +4,10 @@
     <input id="hidden" type="hidden" name="_method" value="patch">
     
     <label>Name: </label>
-    <input type="text" name="grocery[name]" id="name" value="<%=@grocery.name%>" class="rounded"><br/>
+    <input type="text" name="grocery[name]" id="name" value="<%=@grocery.name.titleize%>" class="rounded"><br/>
     
     <label>Brand: </label>
-    <input type="text" name="grocery[brand]" id="brand" value="<%=@grocery.brand%>" class="rounded"><br/>
+    <input type="text" name="grocery[brand]" id="brand" value="<%=@grocery.brand.titleize%>" class="rounded"><br/>
     
     <label>Expiration Date: </label>
     <input type="date" name="grocery[expiration_date]" id="expiration_date" value="<%=@grocery.expiration_date%>" class="rounded"><br/>
