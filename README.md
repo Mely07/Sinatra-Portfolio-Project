@@ -19,7 +19,7 @@ Run bundle install to install the gems in the Gemfile, then start the applicatio
 This repo subscribes to the Contributor Code of Conduct, based on the Contributor Covenant. The maintainers of this code take the [code of conduct](https://www.contributor-covenant.org/version/2/0/code_of_conduct/code_of_conduct.md), to which all who are interacting with the projects codebase and mailing lists must adhere, very seriously.
 
 ## License 
-This code is available as open source under the terms of the [MIT License] (https://opensource.org/licenses/MIT. 
+This code is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT). 
 
 ## Contact
 If you want to contact me you can reach me at damely.tineo07@gmail.com.
