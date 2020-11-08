@@ -1,11 +1,14 @@
 # "What's In My Fridge?"
-#### Demo
+#### Demo:
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=FpFcbaQwXis
 " target="_blank"><img src="http://img.youtube.com/vi/FpFcbaQwXis/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
 ## Description
-“What’s In My Fridge?” is a CRUD, MVC web application that allows a user to create or add new grocery items to their virtual refrigerator, read the grocery items in their fridge, update or edit the grocery items they own, and finally, delete or destroy any of the grocery items they own. With the use of forms new and altered data is persisted and retrieved to and from a database. User can login and out of the application, view other user’s refrigerators but NOT edit nor delete their items, and, finally, message other users via email. 
+“What’s In My Fridge?” is a CRUD, MVC web application that allows a user to create or add new grocery items to their virtual refrigerator, read the grocery items in their fridge, update or edit the grocery items they own, and finally, delete or destroy any of the grocery items they own. With the use of forms new and altered data is persisted and retrieved to and from a database. Users can login and out of the application, view other user’s refrigerators but NOT edit or delete their items, and, finally, message other users via email. 
+
+Related Blog Post:
+[Cookies and Sessions](https://mely07.github.io/sinatra_project_-_cookies_and_sessions)
 
 ## Prerequisites
 Before you begin, 
