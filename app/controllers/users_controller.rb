@@ -24,7 +24,7 @@ class UsersController < ApplicationController
         else
             user = User.create(params)
             if user.valid?
-                session[:user_id] = user.id 
+                session[:user_id] = user.id #storing user.id in session 
                 redirect to "/users/#{user.id}"
             else 
                 flash[:danger] = "Username/Email already registered. Please try again!"
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
     end
 
     get '/users/:id' do
-        if Helpers.is_logged_in?(session) && User.find_by(id: params[:id])
+        if Helpers.is_logged_in?(session) && User.find_by(id: params[:id]) #make sure id exists 
             @user = User.find_by(id: params[:id])
             @groceries = @user.groceries
         else
@@ -66,7 +66,7 @@ class UsersController < ApplicationController
         if Helpers.is_logged_in?(session)
             session.clear 
             flash[:warning] = "Goodbye!"
-            erb :'users/login'
+            erb :'users/login' #a redirect would spur up a new session in which flash would be empty 
         else
             redirect to '/login'
         end

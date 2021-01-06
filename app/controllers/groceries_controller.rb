@@ -6,9 +6,7 @@ class GroceriesController < ApplicationController
     end
     
     get '/groceries/new' do
-        if !Helpers.is_logged_in?(session)
-            redirect '/'
-        end
+        redirect_if_not_logged_in
         erb :'groceries/new'
     end
 
